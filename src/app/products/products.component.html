@@ -1,0 +1,66 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{title}}
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">
+                Filter
+            </div>
+            
+             <div class="col-md-6">
+                <input type="text" [(ngModel)]="filterProducts"/>
+                <button class="btn btn-default" type="submit" (click)="goToSearch(filterProducts)">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+            </div>
+        </div><br><br>
+         
+        {{errorMessage}}
+        
+       
+           <div class="container">
+                        <img [src]='' [style.width.px]="imgWidth"/>
+
+                        <h2>{{products.Title}}</h2>
+                        <h3>Season: {{products.Season}}</h3>
+                        <br>
+                        <p>Total Seasons {{products.totalSeasons}}</p>
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Show Details</button>
+                        <div id="demo" class="collapse">
+                           <div class="table-responsive" *ngIf="products">
+                                <table class="table">
+                                        <thead>   
+                                <tr>
+                                       <th>Title</th>
+                                        <th>Released</th>
+                                        <th>Episode</th>
+                                        <th>Rating</th>
+                                        <th></th>
+                                </tr>
+                                <tr *ngFor="let episode of products.Episodes">
+                                        <td>{{episode.Title}}</td> 
+                                        <td>{{episode.Released}}</td> 
+                                        <td>{{episode.Episode}}</td> 
+                                        
+                                <td [ngClass]="{'positive' : episode.imdbRating >= 8.5, 'negative' : episode.imdbRating < 8.5}">
+                                            {{episode.imdbRating}}</td> 
+                                        <td></td> 
+                                 </tr>
+                                 <tr>
+                                     <td></td>
+                                     <td></td>
+                                     <td>AVERAGE RATINGS</td>
+                                     <td>{{ getTotal() | number : '1.2-2' }}</td>
+                                 </tr>
+                            </thead>
+                          </table>
+                      
+                        
+                      
+                        </div>
+                      </div>
+
+        </div>
+    
+</div>  
