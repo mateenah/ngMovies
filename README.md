@@ -33,7 +33,9 @@ git commit -m "message" to commit the code to git
 git remote add origin https://github.com/mateenah/ngMovies.git (the link to your repo)
 git push -u origin master
 once the above steps are done, refresh your git repo to check if the commit was successful
-ng build --base-href="https://mateenah.github.io/ngMovies/" --- build the repo again using the link path to ur repo
+
+ng build --base-href="https://mateenah.github.io/ngMovies/" --- 
+build the repo again using the link path to ur repo
 angular-cli-ghpages
 
 Now launch the app
